@@ -2,11 +2,24 @@
 
 <html>
     <head>
-        <link rel="text/css" src="CSS/pocket-calc.css"/>
+        <link rel="stylesheet" type="text/css" href="CSS/pocket-calc.css"/>
         <script rel="text/javascript" src="JS/pocket-calc.js"></script>
     </head>
     <body>
-        <table id= "calc">
+        <p id="title"> Pocket Calculator</p>
+        <table align="center" id= "calc">
+            <tr><td colspan="4">
+                <p id="display"></p>
+            </td></tr>
+            <tr>
+                <td><button class="calcButtons" onclick="erase()">AC</button></td>
+                
+                <td><button class="calcButtons" onclick="integer()">+/-</button></td>
+                
+                <td><button class="calcButtons" onclick="parenthesis1()">(</button></td>
+
+                <td><button class="calcButtons" onclick="parenthesis2()">)</button></td>
+            </tr>
             <tr>
                 <td><button class="calcButtons" onclick="seven();"> 7 </button></td>
                 
@@ -14,7 +27,7 @@
                         
                 <td><button class="calcButtons" onclick="nine();"> 9 </button></td>
 
-                <td><button class="calcButtons" onclick="multiply();"> * </button></td>
+                <td><button class="calcButtons" class="operators" onclick="multiply();"> * </button></td>
             </tr>
         
             <tr>
@@ -25,7 +38,7 @@
 
                 <td><button class="calcButtons" onclick="six();"> 6 </button></td>
 
-                <td><button class="calcButtons" onclick="subtract();"> - </button></td>
+                <td><button class="calcButtons" class="operators"onclick="subtract();"> - </button></td>
 
                 
             </tr>
@@ -37,9 +50,14 @@
 
                 <td><button class="calcButtons" onclick="three();">3</button></td>
                 
-                <td><button class="calcButtons" onclick="add();"> + </button></td>
+                <td><button class="calcButtons" class="operators" onclick="add();"> + </button></td>
             </tr>          
             
+            <tr>
+                <td colspan="2"><button id="zero" class="calcButtons" onclick="zero();">0</button></td>
+                <td><button class="calcButtons" onclick="decinmal();">.</button></td>
+                <td><button class="calcButtons" class="operators" onclick="equal();">=</button></td>
+            </tr>
            
         
     </table>

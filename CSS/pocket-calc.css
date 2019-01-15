@@ -1,7 +1,47 @@
-.calcButtons {
 
-}
-#table, tr, td {
-    border: 2px solid black;
+#calc, td, table {
+    border: 5px solid black;
     border: collapse;
+    text-align: center;
+    border-radius: 25px;
   }
+table {
+  background-image: url("https://i.gifer.com/J4o.gif");
+}
+#title {
+    text-align: center;
+  }
+td {
+  width: 150px;
+  height: 150px;
+}
+#display {
+  background-color: gray;
+  height: 80px;
+  border-radius: 25px;
+}
+button {
+  background-color: rgb(47, 218, 248);
+  border: 1px;
+  border-collapse: collapse;
+  border-radius: 360px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+}
+
+p {
+  font-size: 30px;
+  color: white;
+  padding: 50px 0px 0px 0px;
+  text-align: right
+}
+#zero {
+  width: 250px;
+}
+.operators {
+  background-color: rgb(51, 49, 49)
+}
