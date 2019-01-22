@@ -59,14 +59,12 @@ function clearCalc(){
   opInserted = false
   document.calc.display.value=0;
    i = i = 7;
-   console.log("iOnClearCalc", i)
   executed = false;
   decimalStatInsert = false;
   piInsertStatus = false;
   decimalNumInsert = false;
   firstNegationStatus = false
-  console.log("status", afterEqualLastSym, opInserted, executed, decimalStatInsert, piInsertStatus, decimalNumInsert)
-    expressionArray = [];
+  expressionArray = [];
    
     document.getElementById("numButton0").disabled = false;
     document.getElementById("numButton1").disabled = false;
