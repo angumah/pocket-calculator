@@ -1,4 +1,7 @@
-
+body{
+  background-image: url("https://i.pinimg.com/originals/5b/c7/4c/5bc74c1398f622e80e06cc023dcef977.gif");
+  background-size: contain;
+}
 #calc, td, table {
     border: collapse;
     text-align: center;
@@ -14,12 +17,9 @@ td {
   width: 150px;
   height: 150px;
 }
-#display {
+#screen {
   background-color: black;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 620px;
+  width: 100px;
   height: 135px;
   border: 5px solid azure;
   border-radius: 15px;
@@ -27,8 +27,14 @@ td {
   color: white;
   text-align: right;
 }
+#display{
+  color: white;
+  font-size: 40px;
+}
 button {
-  background-color: rgb(47, 218, 248);
+  background-image: url("https://i.gifer.com/7TY.gif");
+  background-size: contain;
+  border: 3px solid rgb(48, 183, 245);
   border-radius: 15px;
   color: white;
   padding: 15px 32px;
@@ -40,11 +46,12 @@ button {
 
 
 .function-buttons{
-  background-color: orange;
+  border: 3px solid rgb(250, 173, 6);
 }
 button:hover {
   background-color: black;
   color: white;
+  opacity: 0px;
   transition-duration: 0.15s;
 }
 button:active {
@@ -53,4 +60,8 @@ button:active {
 }
 p{
   font-size: 50px;
+  color: azure;
+}
+.function-buttons2, #power{
+  border: 3px solid rgb(83, 250, 6);
 }

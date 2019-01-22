@@ -8,59 +8,63 @@
     <body onload="clearCalc()">
         <p id="title"> Pocket Calculator</p>
         <table align="center" id= "calc">
-            <tr><td colspan="4"><form  name="calc">
-            <input id="display" name="display" disabled>
-            </form></td></tr>
+            <tr><td id="screen" colspan="4"><p id="display"></p></td></tr>
             <tr>
                 <td><button id="erase" class="function-buttons" onclick="clearCalc()">AC</button></td>
 
                 <td><button id="piButton" class="function-buttons" onclick=piInsert(3.1415926)>π</button></td>
-                
+
                 <td><button id="negate" class="function-buttons" onclick="numberNegation()">+/-</button></td>
 
-                <td><button id="divide" class="function-buttons" onclick="insert('/'); clearOnOp();">/</button></td>
+                <td><button id="divide" class="function-buttons" onclick="insert('/');">/</button></td>
             </tr>
             <tr>
-                <td><button id="numButton7" class="calc-buttons" onclick="insert(7);"> 7 </button></td>
-                
-                <td><button id="numButton8" class="calc-buttons" onclick="insert(8);"> 8 </button></td>
-                        
-                <td><button id="numButton9" class="calc-buttons" onclick="insert(9);"> 9 </button></td>
+                <td><button id="numButton7" class="calc-buttons" onclick="insert('7');"> 7 </button></td>
 
-                <td><button id="multiply" class="function-buttons" onclick="insert('*'); clearOnOp();"> * </button></td>
-            </tr>
-        
-            <tr>
-                
-                <td><button id="numButton4" class="calc-buttons" onclick="insert(4);">4</button></td>
-            
-                <td><button id="numButton5" class="calc-buttons" onclick="insert(5);"> 5 </button></td>
+                <td><button id="numButton8" class="calc-buttons" onclick="insert('8');"> 8 </button></td>
 
-                <td><button id="numButton6" class="calc-buttons" onclick="insert(6);"> 6 </button></td>
+                <td><button id="numButton9" class="calc-buttons" onclick="insert('9');"> 9 </button></td>
 
-                <td><button id="subtract" class="function-buttons" onclick="insert('-'); clearOnOp();"> - </button></td>
-
-                
+                <td><button id="multiply" class="function-buttons" onclick="insert('*');"> * </button></td>
             </tr>
 
-            <tr> 
-                <td><button id="numButton1" class="calc-buttons" onclick="insert(1);">1</button></td>
-                
-                <td><button id="numButton2" class="calc-buttons" onclick="insert(2);">2</button></td> 
-
-                <td><button id="numButton3" class="calc-buttons" onclick="insert(3);">3</button></td>
-                
-                <td><button id="addition" class="function-buttons" onclick="insert('+'); clearOnOp();"> + </button></td>
-            </tr>          
-            
             <tr>
-                <td><button id="numButton0" class="calc-buttons" onclick="insert(0);">0</button></td>
+
+                <td><button id="numButton4" class="calc-buttons" onclick="insert('4');">4</button></td>
+
+                <td><button id="numButton5" class="calc-buttons" onclick="insert('5');"> 5 </button></td>
+
+                <td><button id="numButton6" class="calc-buttons" onclick="insert('6');"> 6 </button></td>
+
+                <td><button id="subtract" class="function-buttons" onclick="insert('-');"> - </button></td>
+
+
+            </tr>
+
+            <tr>
+                <td><button id="numButton1" class="calc-buttons" onclick="insert('1');">1</button></td>
+
+                <td><button id="numButton2" class="calc-buttons" onclick="insert('2');">2</button></td>
+
+                <td><button id="numButton3" class="calc-buttons" onclick="insert('3');">3</button></td>
+
+                <td><button id="addition" class="function-buttons" onclick="insert('+');"> + </button></td>
+            </tr>
+
+            <tr>
+                <td><button id="numButton0" class="calc-buttons" onclick="insert('0');">0</button></td>
                 <td><button id="decimal" class="calc-buttons" onclick="decimalInsert('.');">.</button></td>
                 <td><button id="percentage"class="calc-buttons" onclick="numberPercentage();">%</button></td>
                 <td><button id="equal" class="function-buttons" onclick="equal();">=</button></td>
             </tr>
-           
-        
+            <tr>
+                <td><button id="power" class="power" onclick="onOff();">Pow</button></td>
+                <td><button id="exponent2" class="function-buttons2" onclick="toPower2('x^2');">X^2</button></td>
+                <td><button id="exponent3" class="function-buttons2" onclick="toPower3('x^3');">X^3</button></td>
+                <td><button id="exponenty" class="function-buttons2" onclick="toPowery('x^y');">X^y</button></td>
+            </tr>
+
+
     </table>
 
     </body>
