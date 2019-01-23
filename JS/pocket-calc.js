@@ -94,25 +94,29 @@ function clearCalc(){
 
 function equal(){
   if(on === true){
-  let answer = eval(expression);
-  if(answer > 999999999 || answer < -999999999){
-  answer = answer.toExponential(9)
-  expression = answer;
-  document.getElementById("display").innerHTML = answer.toLocaleString();
-  }else{
-    expression = answer;
-    document.getElementById("display").innerHTML = answer.toLocaleString();
-  } if(answer === 'infinity' || '-infinity' || 'NaN' || 'undefined') {
-    document.getElementById("display").innerHTML = "ERROR";
-    console.log(expression);
+  let answer = eval(expression); 
+  if(answer==Infinity){
+  document.getElementById("display").innerHTML="Error";
+  }
 }
+else if(answer>=999999999 || answer<=-999999999){
+  answer = answer.toLocaleString();
+  document.getElementById("display").innerHTML=answer.toExponential(9);
+  expression= answer;
 }
+else{
+  document.getElementById("display").innerHTML=answer.toLocaleString();
+  expression= answer;
+}     
 }
 function numberNegation(){
   if(on === true){
-  displayExpression = -displayExpression
-  expression+= '*(-1)'
+  displayExpression = -displayExpression;
   document.getElementById("display").innerHTML = displayExpression;
+  expression = expression.substring(0, expression.length - 2);
+  console.log(expression);
+  expression+= (displayExpression);
+  console.log(expression);
 }
 }
 
