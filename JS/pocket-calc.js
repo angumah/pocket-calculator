@@ -15,6 +15,7 @@ function onOff(){
     document.getElementById("display").innerHTML = displayExpression;
     console.log(on);
     firstNum= true;
+    ops = false;
   }else if(on === true){
     on = false;
     displayExpression = " ";
@@ -37,13 +38,21 @@ function onOff(){
 }
 function operator(op){
   if(on === true){
-  if(op === '+' || op === '-' || op === '/' || op === '*'){
+  if(op === '+' && ops === false|| op === '-' && ops === false|| op === '/' && ops === false|| op === '*' && ops === false){
     expression+= (op);
     displayExpression= ' ';
     document.getElementById("display").innerHTML = '0';
     numNums = 0;
     ops = true;
     console.log(expression);
+} else if(op === '+' && ops === true|| op === '-' && ops === true|| op === '/' && ops === true|| op === '*' && ops === true){
+  expression = expression.substring(0, expression.length - 1);
+  expression+=(op);
+  displayExpression= ' ';
+  document.getElementById("display").innerHTML = '0';
+  numNums = 0;
+  ops = true;
+  console.log(expression);
 }
 }
 }
@@ -54,7 +63,7 @@ if(num === '1' || num === '2' ||num === '3' ||num === '4' ||num === '5' ||num ==
 if(firstNum == true){
   expression+=(num);
   displayExpression = (num);
-  document.getElementById("display").innerHTML = displayExpression.toLocaleString();
+  document.getElementById("display").innerHTML = Number(displayExpression).toLocaleString();
   firstNum = false;
   numNums++;
   ops = false;
@@ -62,7 +71,7 @@ if(firstNum == true){
   }else if(firstNum == false){
   displayExpression+= (num);
   expression+=(num);
-  document.getElementById("display").innerHTML = displayExpression.toLocaleString();
+  document.getElementById("display").innerHTML = Number(displayExpression).toLocaleString();
   numNums++;
   ops = false;
   console.log(numNums, expression);
@@ -79,6 +88,7 @@ function clearCalc(){
   firstNum= true;
   document.getElementById("display").innerHTML = displayExpression;
   dec = false;
+  ops = false;
   }
 }
 
@@ -137,5 +147,24 @@ expression = (expression * (num));
 displayExpression = (displayExpression* (num));
 document.getElementById("display").innerHTML = displayExpression;
 }
+}
+}
+function toPower2(){
+if(on === true){
+expression+='^2';
+displayExpression+='^2';
+}
+}
+function toPower3(){
+if(on === true){
+expression+='^3';
+displayExpression+='^3';
+}
+}
+function rootNum(){
+if(on === true){
+expression = Math.sqrt(expression);
+displayExpression = expression;
+document.getElementById("display").innerHTML = displayExpression;
 }
 }
