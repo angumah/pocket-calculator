@@ -95,11 +95,7 @@ function clearCalc(){
 function equal(){
   if(on === true){
   let answer = eval(expression);
-  if(answer === Infinity|| -Infinity|| undefined || NaN) {
-    document.getElementById("display").innerHTML = "ERROR";
-    console.log(expression);
-}
-else if(answer > 999999999 || answer < -999999999){
+  if(answer > 999999999 || answer < -999999999){
   answer = answer.toExponential(9)
   expression = answer;
   document.getElementById("display").innerHTML = answer.toLocaleString();
@@ -107,6 +103,9 @@ else if(answer > 999999999 || answer < -999999999){
     expression = answer;
     document.getElementById("display").innerHTML = answer.toLocaleString();
     
+}
+if(answer == Infinity){
+  document.getElementById("display").innerHTML = 'ERROR';
 }
 }
 }
