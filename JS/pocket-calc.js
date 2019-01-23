@@ -3,22 +3,19 @@ var displayExpression=" "
 var numNums= " "
 var on= false;
 var firstNum= false;
-let ops = false;
+var ops = false;
+var dec = false;
 console.log(on);
 
-function display(){
-if(on == false)
-document.getElementById("display").innerHTML = " ";
-}
 function onOff(){
-  if(on == false){
+  if(on === false){
     on = true;
     numNums= 0
     displayExpression = "0";
     document.getElementById("display").innerHTML = displayExpression;
     console.log(on);
     firstNum= true;
-  }else if(on == true){
+  }else if(on === true){
     on = false;
     displayExpression = " ";
     numNums=" "
@@ -38,82 +35,107 @@ function onOff(){
     console.log(on + firstNum);
   }
 }
-function operations(operation){
-  if(operation == '+' && symbol == true){
-      expression+='+';
-      displayExpression='';
-      document.getElementById("display").innerHTML='0';
-      symbol=false;
-  }
-  if(operation == '-' && symbol == true){
-      expression+='-';
-      displayExpression='';
-      document.getElementById("display").innerHTML='0';
-      symbol=false;
-  }
-  if(operation == 'x' && symbol == true){
-      expression+='*';
-      displayExpression='';
-      document.getElementById("display").innerHTML='0';
-      symbol=false;
-  }
-  if(operation == '/' && symbol == true){
-      expression+='/';
-      displayExpression='';
-      document.getElementById("display").innerHTML='0';
-      symbol=false;
-  }
+function operator(op){
+  if(on === true){
+  if(op === '+' || op === '-' || op === '/' || op === '*'){
+    expression+= (op);
+    displayExpression= ' ';
+    document.getElementById("display").innerHTML = '0';
+    numNums = 0;
+    ops = true;
+    console.log(expression);
+}
+}
 }
 function insert(num){
+if(on === true){
 if(numNums < 9){
+if(num === '1' || num === '2' ||num === '3' ||num === '4' ||num === '5' ||num === '6' ||num === '7' ||num === '8' ||num === '9' ||num === '0'){
 if(firstNum == true){
-  if(num = '1')
-  expression+=(num).toString();
-  displayExpression = (num).toString();
-  document.getElementById("display").innerHTML = displayExpression.toLocaleString('en');
+  expression+=(num);
+  displayExpression = (num);
+  document.getElementById("display").innerHTML = displayExpression.toLocaleString();
   firstNum = false;
   numNums++;
-} else if(firstNum == false){
-  displayExpression+= (num).toString();
-  expression+=(num).toString();
-  document.getElementById("display").innerHTML = displayExpression.toLocaleString('en');
+  ops = false;
+  console.log(numNums, expression);
+  }else if(firstNum == false){
+  displayExpression+= (num);
+  expression+=(num);
+  document.getElementById("display").innerHTML = displayExpression.toLocaleString();
   numNums++;
-
+  ops = false;
+  console.log(numNums, expression);
+  }
+}
 }
 }
 }
 function clearCalc(){
+  if(on === true){
   displayExpression="0";
   expression=" ";
   numNums= 0
   firstNum= true;
   document.getElementById("display").innerHTML = displayExpression;
+  dec = false;
+  }
 }
 
 function equal(){
+  if(on === true){
   let answer = eval(expression);
   if(answer > 999999999 || answer < -999999999){
-    answer = answer.toExponential(9)
+  answer = answer.toExponential(9)
+  expression = answer;
+  document.getElementById("display").innerHTML = answer.toLocaleString();
   }else{
     expression = answer;
-    document.getElementById("display").innerHTML = expression;
-
-  if(answer === "Infinity" || answer === "∞" || answer === "NaN") {
+    document.getElementById("display").innerHTML = answer.toLocaleString();
+  } if(answer === (expression)/0) {
     document.getElementById("display").innerHTML = "ERROR";
-  }
+    console.log(expression);
+}
 }
 }
 function numberNegation(){
+  if(on === true){
+  displayExpression = -displayExpression
+  expression+= '*(-1)'
+  document.getElementById("display").innerHTML = displayExpression;
+}
 }
 
 function numberPercentage(){
- 
+ if(on === true){
+ let percentage = (expression/100);
+ displayExpression = percentage;
+ document.getElementById("display").innerHTML = displayExpression;
   }
+}
 
   
 function decimalInsert(num){
-
+if(on === true){
+if(dec === false){
+  expression+='.';
+  displayExpression+='.';
+  dec = true;
+  document.getElementById("display").innerHTML = displayExpression;
+} 
+}
 }
 function piInsert(num){
- 
+if(on === true){
+if(firstNum === true){
+  expression+= (num);
+  displayExpression = (num);
+  firstNum = false;
+  document.getElementById("display").innerHTML = displayExpression;
+} else if(firstNum === false){
+expression = (expression * (num));
+displayExpression = (displayExpression* (num));
+document.getElementById("display").innerHTML = displayExpression;
+}
+}
 }
