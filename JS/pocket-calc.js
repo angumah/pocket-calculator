@@ -102,7 +102,7 @@ function equal(){
   }else{
     expression = answer;
     document.getElementById("display").innerHTML = answer.toLocaleString();
-  } if(answer === (expression)/0) {
+  } if(answer === 'infinity' || '-infinity' || 'NaN' || 'undefined') {
     document.getElementById("display").innerHTML = "ERROR";
     console.log(expression);
 }
@@ -151,20 +151,40 @@ document.getElementById("display").innerHTML = displayExpression;
 }
 function toPower2(){
 if(on === true){
-expression+='^2';
-displayExpression+='^2';
+expression = (expression * expression);
+if(expression > 999999999 || expression < -999999999){
+  expression = expression.toExponential(9)
+displayExpression = expression;
+document.getElementById("display").innerHTML = displayExpression.toLocaleString();
+} else{
+displayExpression = expression;
+document.getElementById("display").innerHTML = displayExpression.toLocaleString();
+}
 }
 }
 function toPower3(){
 if(on === true){
-expression+='^3';
-displayExpression+='^3';
+  expression = (expression * expression * expression);
+  if(expression > 999999999 || expression < -999999999){
+    expression = expression.toExponential(9)
+  displayExpression = expression;
+  document.getElementById("display").innerHTML = displayExpression.toLocaleString();
+  } else{
+  displayExpression = expression;
+  document.getElementById("display").innerHTML = displayExpression.toLocaleString();
+}
 }
 }
 function rootNum(){
 if(on === true){
 expression = Math.sqrt(expression);
+if(expression > 999999999 || expression < -999999999){
+expression = expression.toExponential(9)
 displayExpression = expression;
-document.getElementById("display").innerHTML = displayExpression;
+document.getElementById("display").innerHTML = displayExpression.toLocaleString();
+} else{
+displayExpression = expression;
+document.getElementById("display").innerHTML = displayExpression.toLocaleString();
+}
 }
 }
