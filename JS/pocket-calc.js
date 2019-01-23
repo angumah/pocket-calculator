@@ -20,20 +20,8 @@ function onOff(){
     on = false;
     displayExpression = " ";
     numNums=" "
-    document.getElementById("numButton0").disabled = true;
-    document.getElementById("numButton1").disabled = true;
-    document.getElementById("numButton2").disabled = true;
-    document.getElementById("numButton3").disabled = true;
-    document.getElementById("numButton4").disabled = true;
-    document.getElementById("numButton5").disabled = true;
-    document.getElementById("numButton6").disabled = true;
-    document.getElementById("numButton7").disabled = true;
-    document.getElementById("numButton8").disabled = true;
-    document.getElementById("numButton9").disabled = true;
-    document.getElementById("decimal").disabled = true;
-    document.getElementById("piButton").disabled = true;
     document.getElementById("display").innerHTML = displayExpression;
-    console.log(on + firstNum);
+    console.log(on , firstNum);
   }
 }
 function operator(op){
@@ -44,6 +32,7 @@ function operator(op){
     document.getElementById("display").innerHTML = '0';
     numNums = 0;
     ops = true;
+    dec = false;
     console.log(expression);
 } else if(op === '+' && ops === true|| op === '-' && ops === true|| op === '/' && ops === true|| op === '*' && ops === true){
   expression = expression.substring(0, expression.length - 1);
@@ -52,6 +41,7 @@ function operator(op){
   document.getElementById("display").innerHTML = '0';
   numNums = 0;
   ops = true;
+  dec = false;
   console.log(expression);
 }
 }
@@ -67,14 +57,14 @@ if(firstNum == true){
   firstNum = false;
   numNums++;
   ops = false;
-  console.log(numNums, expression);
+  console.log(numNums, expression , firstNum);
   }else if(firstNum == false){
   displayExpression+= (num);
   expression+=(num);
   document.getElementById("display").innerHTML = Number(displayExpression).toLocaleString();
   numNums++;
   ops = false;
-  console.log(numNums, expression);
+  console.log(numNums, expression , firstNum);
   }
 }
 }
@@ -113,9 +103,9 @@ function numberNegation(){
   if(on === true){
   displayExpression = -displayExpression;
   document.getElementById("display").innerHTML = displayExpression;
-  expression = expression.substring(0, expression.length - 2);
+  expression = expression.substring(0, expression.length - 1);
   console.log(expression);
-  expression+= (displayExpression);
+  expression+= '(' + displayExpression + ')';
   console.log(expression);
 }
 }
